@@ -1363,6 +1363,10 @@ func (rows *binaryRows) readRow(dest []driver.Value) error {
 			var n int
 			dest[i], isNull, n, err = readLengthEncodedString(data[pos:])
 			pos += n
+			//<<sunhe
+			b, _ := dest[i].([]byte)
+			dest[i] = string(b)
+			//sunhe
 			if err == nil {
 				if !isNull {
 					continue
