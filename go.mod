@@ -1,3 +1,3 @@
-module github.com/go-sql-driver/mysql
+module github.com/sunhe/mysql
 
-go 1.18
+go 1.20
