@@ -1404,6 +1404,10 @@ func (rows *binaryRows) readRow(dest []driver.Value) error {
 					)
 				}
 				dest[i], err = formatBinaryTime(data[pos:pos+int(num)], dstlen)
+				//<<sunhe
+				b, _ := dest[i].([]byte)
+				dest[i] = string(b)
+				//sunhe
 			case rows.mc.parseTime:
 				dest[i], err = parseBinaryDateTime(num, data[pos:], rows.mc.cfg.Loc)
 			default:
